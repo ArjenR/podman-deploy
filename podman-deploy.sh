@@ -1,6 +1,6 @@
 #!/bin/bash
 podname=${PWD##*/}
-systemctl is-active --quiet pod-${podname} && systemctl stop pod-samba_smb01.service
+systemctl is-active --quiet pod-${podname} && systemctl stop pod-${podname}
 podman-compose up -d ${@}
 rm *.service
 podman generate systemd --new --files --name ${podname}
